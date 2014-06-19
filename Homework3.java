@@ -1,5 +1,6 @@
 /* Homework3.java */
 
+
 public class Homework3 {
 
   /**
@@ -17,35 +18,23 @@ public class Homework3 {
    *
    *  @param ints the input array.
    **/
-
   public static void smoosh(int[] ints) {
-    int j = 0;
-    int[] ints2 = new int[length(ints)];
-    while (j < length(ints)) {
-    	ints2[j] = -1;
-    	j += 1;
+    int[] newInts = new int[ints.length];
+    newInts[0] = ints[0];
+    int i = 0, j = 0;
+    while(i < ints.length) {
+      if (ints[i] != newInts[j]) {
+        j++; newInts[j] = ints[i];
+      }
+      i++;
     }
-    
-    int i = 1;
-    int k = 0;
-    while (i < length(ints)) {
-    	if (ints[i] == ints[i-1]) {
-    		if (ints[i-1] != ints2[k]) {
-    			ints2[k] = ints[i-1];
-    		}
-    		i += 1;
-    	}
-    	else {
-    		k += 1;
-    		ints2[k] = ints[i];
-    		i += 1;
-    	}
+    j++;
+    while(j < ints.length) {
+      newInts[j] = -1;
+      j++;
     }
-    
-    int q = 0;
-    while (q < length(ints)) {
-    	ints[q] = ints2[q];
-    	q += 1;
+    for (int k=0;k<ints.length;k++) {
+      ints[k] = newInts[k];
     }
   }
 
