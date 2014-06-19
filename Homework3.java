@@ -19,8 +19,34 @@ public class Homework3 {
    **/
 
   public static void smoosh(int[] ints) {
-    // Fill in your solution here.  (Ours is twelve lines long, not counting
-    // blank lines or lines already present in this file.)
+    int j = 0;
+    int[] ints2 = new int[length(ints)];
+    while (j < length(ints)) {
+    	ints2[j] = -1;
+    	j += 1;
+    }
+    
+    int i = 1;
+    int k = 0;
+    while (i < length(ints)) {
+    	if (ints[i] == ints[i-1]) {
+    		if (ints[i-1] != ints2[k]) {
+    			ints2[k] = ints[i-1];
+    		}
+    		i += 1;
+    	}
+    	else {
+    		k += 1;
+    		ints2[k] = ints[i];
+    		i += 1;
+    	}
+    }
+    
+    int q = 0;
+    while (q < length(ints)) {
+    	ints[q] = ints2[q];
+    	q += 1;
+    }
   }
 
   /**
